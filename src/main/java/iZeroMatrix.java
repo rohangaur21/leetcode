@@ -20,7 +20,7 @@ Output:
 ]
 Example 2
 */
-public class ZeroMatrix {
+public class iZeroMatrix {
     public void setZeroes(int[][] matrix) {
         Set<Integer> x = new HashSet<>();
         Set<Integer> y = new HashSet<>();

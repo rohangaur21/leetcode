@@ -15,10 +15,10 @@ Output: 1->1->2->3->4->4->5->6*/
 import java.util.Map;
 import java.util.TreeMap;
 
-public class MergeKSortedList {
+public class iMergeKSortedList {
     class ListNode {
         int val;
-        MergeKSortedList.ListNode next;
+        iMergeKSortedList.ListNode next;
 
         ListNode(int x) {
             val = x;

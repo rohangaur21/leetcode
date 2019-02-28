@@ -1,4 +1,8 @@
-public class FindInRotatedSortedArray {
+public class iFindInRotatedSortedArray {
+    public static void main(String... a) {
+        System.out.println(new iFindInRotatedSortedArray().search(new int[]{5, 6, 7, 0, 1, 2, 3, 4}, 7));
+    }
+
     public int search(int[] nums, int target) {
         int begin = 0;
         int end = nums.length;
@@ -9,6 +13,8 @@ public class FindInRotatedSortedArray {
             int num = (target < nums[0]) == (nums[mid] < nums[0])
                     ? nums[mid] :
                     (target < nums[0]) ? Integer.MIN_VALUE : Integer.MAX_VALUE;
+
+            System.out.println(begin + "__ " + end + " @ " + mid + "__" + nums[mid] + "__" + num);
 
             if (num < target) {
                 begin = mid + 1;

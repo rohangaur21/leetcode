@@ -16,7 +16,7 @@ Note:
 cost will have a length in the range [2, 1000].
 Every cost[i] will be an integer in the range [0, 999].
 */
-public class MinCostClimbingSteps {
+public class iMinCostClimbingSteps {
     public int minCostClimbingStairs(int[] cost) {
         int min = 0;
         for (int i = 2; i < cost.length; i++) {

@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayPermutation {
+public class iArrayPermutation {
+    public static void main(String... a) {
+        System.out.println(new iArrayPermutation().permute(new int[]{1, 2, 3}));
+    }
+
     public List<List<Integer>> permute(int[] nums) {
         List<List<Integer>> ans = new ArrayList<List<Integer>>();
         if (nums == null || nums.length == 0) {

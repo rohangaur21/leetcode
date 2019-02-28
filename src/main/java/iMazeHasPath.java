@@ -1,6 +1,6 @@
 import java.util.Arrays;
 
-public class MazeHasPath {
+public class iMazeHasPath {
     private static final int[] DIRECTIONS = {0, 1, 0, -1, 0};
 
     public boolean hasPath(int[][] maze, int[] start, int[] destination) {

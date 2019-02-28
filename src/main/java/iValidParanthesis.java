@@ -17,7 +17,7 @@ Example 2:
 
 Input: "()[]{}"
 Output: true*/
-public class ValidParanthesis {
+public class iValidParanthesis {
     public boolean isValid(String s) {
         Stack<Character> stack = new Stack<Character>();
         for (int i = 0; i < s.length(); i++) {

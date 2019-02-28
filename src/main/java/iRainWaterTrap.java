@@ -11,7 +11,7 @@ Example:
 Input: [0,1,0,2,1,0,1,3,2,1,2,1]
 Output: 6
 */
-public class RainWaterTrap {
+public class iRainWaterTrap {
     public int trap(int[] height) {
         int len = height.length;
         if (len < 3) {
