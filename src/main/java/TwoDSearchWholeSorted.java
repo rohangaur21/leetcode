@@ -8,7 +8,7 @@ public class TwoDSearchWholeSorted {
         while (row < matrix.length && col >= 0) {
             if (matrix[row][col] == target) {
                 return true;
-            } else if (matrix[row][col] > target) {
+            } else if (target < matrix[row][col]) {
                 col--;
             } else {
                 row++;

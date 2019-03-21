@@ -24,16 +24,16 @@ public class Subset {
         List<List<Integer>> ans = new LinkedList<>();
         List<Integer> list = new LinkedList<>();
         ans.add(new LinkedList<>(list));
-        recur(ans, list, nums, 0);
+        helper(ans, list, nums, 0);
         return ans;
     }
 
-    public void recur(List<List<Integer>> ans, List<Integer> list, int[] nums, int i) {
+    public void helper(List<List<Integer>> ans, List<Integer> list, int[] nums, int i) {
         for (int j = i; j < nums.length; j++) {
             List<Integer> temp = new LinkedList<>(list);
             temp.add(nums[j]);
             ans.add(temp);
-            recur(ans, temp, nums, j + 1);
+            helper(ans, temp, nums, j + 1);
         }
     }
 

@@ -1,4 +1,4 @@
-public class recReverseString {
+public class StringReverseRecursive {
     public static void reverseString(char[] s) {
         helper(s, 0, s.length - 1);
     }

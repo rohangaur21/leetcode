@@ -1,4 +1,6 @@
-public class recReverseListNodeInPair {
+package linkedlist;
+
+public class ReverseListNodeInPair {
     public ListNode swapPairsWData(ListNode node) {
         if (node != null && node.next != null) {
             int temp = node.val;

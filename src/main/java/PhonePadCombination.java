@@ -13,6 +13,8 @@ public class PhonePadCombination {
         for (int i = 0; i < s[Integer.parseInt(digits.charAt(0) + "")].length(); i++) {
             combination.add(s[Integer.parseInt(digits.charAt(0) + "")].charAt(i) + "");
         }
+
+        System.out.println(combination);
         List<String> temp = new ArrayList<>();
         String ss = null;
         for (int i = 1; i < digits.length(); i++) {
@@ -28,5 +30,9 @@ public class PhonePadCombination {
         }
         return combination;
 
+    }
+
+    public static void main(String[] args) {
+        System.out.println(new PhonePadCombination().letterCombinations("56"));
     }
 }

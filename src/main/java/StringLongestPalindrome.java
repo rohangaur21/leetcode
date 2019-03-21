@@ -12,9 +12,8 @@ Input: "cbbd"
 Output: "bb"
 * */
 
-public class LongestPalindrome {
+public class StringLongestPalindrome {
     public String longestPalindrome(String s) {
-
         String palin = "";
         String sub = null;
         for (int i = 0; i < s.length(); i++) {
@@ -31,13 +30,13 @@ public class LongestPalindrome {
     }
 
     public boolean isPalindrome(String s) {
-        int mid = s.length() / 2;
-        int i = 0;
-        while (i < mid) {
-            if (s.charAt(i) != s.charAt(s.length() - i - 1)) {
+        int slen = s.length();
+        int index = 0;
+        while (index < (slen / 2)) {
+            if (s.charAt(index) != s.charAt(slen - index - 1)) {
                 return false;
             }
-            i++;
+            index++;
         }
         return true;
     }
