@@ -8,7 +8,7 @@ public class ListAllIPAddress {
         return ips;
     }
 
-    public  void helper(List<String> ips, String s, String temp, int count) {
+    public void helper(List<String> ips, String s, String temp, int count) {
         if (count == 4) {
             if (s.length() == 0)
                 ips.add(temp.substring(1));
@@ -23,6 +23,7 @@ public class ListAllIPAddress {
             helper(ips, s.substring(index), temp + "." + val, count + 1);
         }
     }
+
 
     public static void main(String[] args) {
         ListAllIPAddress o = new ListAllIPAddress();
