@@ -20,7 +20,7 @@
 import java.util.HashSet;
 import java.util.Set;
 
-public class iSTRLongestStringWORepeatingChars {
+public class StringLongestWORepeatingChars {
     public int lengthOfLongestSubstring(String s) {
         int i = 0, j = 0, max = 0;
         Set<Character> set = new HashSet<>();

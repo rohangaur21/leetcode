@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class iTraversalBFSByLevel {
+public class BTTraversalBFSByLevel {
     public class TreeNode {
         int val;
         TreeNode left;

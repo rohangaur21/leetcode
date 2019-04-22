@@ -1,4 +1,4 @@
-public class iSortQuickSort {
+public class ArrayQuickSort {
     public static void main(String... a) {
         int[] nums = new int[]{2, 3, 1, 0};
         sort(nums, 0, nums.length - 1);

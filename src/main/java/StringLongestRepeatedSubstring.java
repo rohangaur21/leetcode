@@ -1,7 +1,7 @@
 // Java program to find the longest repeated  
 // non-overlapping substring  
 
-class GFG {
+class StringLongestRepeatedSubstring {
 
     // Returns the longest repeating non-overlapping
 // substring in str  

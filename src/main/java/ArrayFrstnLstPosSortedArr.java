@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.Set;
 import java.util.TreeSet;
 
-public class iArrFrstnLstPosSortedArr {
+public class ArrayFrstnLstPosSortedArr {
     public static int[] searchRange(int[] nums, int target) {
         if (Arrays.binarySearch(nums, target) < 0) {
             return new int[]{-1, -1};

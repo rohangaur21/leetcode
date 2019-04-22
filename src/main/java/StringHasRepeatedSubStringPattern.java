@@ -19,7 +19,7 @@
 //        Output: True
 //        Explanation: It's the substring "abc" four times. (And the substring "abcabc" twice.)
 
-public class iSTRHasRepeatedSubStringPattern {
+public class StringHasRepeatedSubStringPattern {
     public boolean repeatedSubstringPattern(String str) {
         if (str == null || str.length() == 0)
             return false;

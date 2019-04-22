@@ -9,7 +9,7 @@
 //        Note:
 //        The length of A and B will be between 1 and 10000.
 
-public class iSTRCountStringRepeatForMatch {
+public class StringCountStringRepeatForMatch {
     public int repeatedStringMatch(String A, String B) {
         StringBuilder s = new StringBuilder();
         s.append(A);

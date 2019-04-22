@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class iArrayPermutation {
+public class ArrayPermutation {
     public static void main(String... a) {
-        System.out.println(new iArrayPermutation().permute(new int[]{1, 2, 3}));
+        System.out.println(new ArrayPermutation().permute(new int[]{1, 2, 3}));
     }
 
     public List<List<Integer>> permute(int[] nums) {

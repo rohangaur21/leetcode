@@ -1,6 +1,6 @@
-public class iFindInRotatedSortedArray {
+public class ArrayFindInRotatedSorted {
     public static void main(String... a) {
-        System.out.println(new iFindInRotatedSortedArray().search(new int[]{5, 6, 7, 0, 1, 2, 3, 4}, 7));
+        System.out.println(new ArrayFindInRotatedSorted().search(new int[]{5, 6, 7, 0, 1, 2, 3, 4}, 7));
     }
 
     public int search(int[] nums, int target) {
