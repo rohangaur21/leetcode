@@ -1,3 +1,5 @@
+package array;
+
 public class ArrayQuickSort {
     public static void main(String... a) {
         int[] nums = new int[]{2, 3, 1, 0};

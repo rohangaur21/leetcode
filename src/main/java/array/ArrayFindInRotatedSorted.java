@@ -1,3 +1,5 @@
+package array;
+
 public class ArrayFindInRotatedSorted {
     public static void main(String... a) {
         System.out.println(new ArrayFindInRotatedSorted().search(new int[]{5, 6, 7, 0, 1, 2, 3, 4}, 7));
