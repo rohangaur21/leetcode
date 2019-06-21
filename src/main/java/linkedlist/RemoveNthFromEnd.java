@@ -37,6 +37,6 @@ public class RemoveNthFromEnd {
         list.printNodes();
         System.out.println("----");
         ListNode h = removeNthFromEnd(list.head, 5);
-        list.printNodes(h);
+        h.print();
     }
 }

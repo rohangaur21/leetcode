@@ -40,21 +40,6 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
         }
     }
 
-    public void printNodes(ListNode node) {
-        if (node == null) {
-            System.out.println("There is no node in the linked list");
-        } else {
-            ListNode<T> curr = node;
-            int i = 1;
-            while (curr != null) {
-                System.out.print(i+"("+curr.toString()+") -> ");
-                curr = curr.next;
-                i++;
-            }
-            System.out.print("\n");
-        }
-    }
-
     /**
      * Count the number of nodes in the linked list.
      */

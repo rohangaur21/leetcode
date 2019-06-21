@@ -14,6 +14,22 @@ public class ListNode<T extends Comparable<T>> {
         return String.valueOf(data);
     }
 
+
+    public void print() {
+        if (this == null) {
+            System.out.println("There is no node");
+        } else {
+            ListNode<T> curr = this;
+            int i = 1;
+            while (curr != null) {
+                System.out.print(i + "(" + curr.toString() + ") -> ");
+                curr = curr.next;
+                i++;
+            }
+            System.out.print("\n");
+        }
+    }
+
 }
 
 
