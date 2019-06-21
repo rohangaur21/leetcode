@@ -19,7 +19,7 @@ public class RemoveNthFromEnd {
                 p1 = p1.next;
             }
         }
-        if (count < n) {
+        if (count < n) { //Used when total nodes = n, otherwise it removes last node
             head = head.next;
         } else {
             p1.next = p1.next.next;
@@ -36,7 +36,7 @@ public class RemoveNthFromEnd {
         list.addNode(7);
         list.printNodes();
         System.out.println("----");
-        ListNode h = removeNthFromEnd(list.head, 2);
+        ListNode h = removeNthFromEnd(list.head, 5);
         list.printNodes(h);
     }
 }
