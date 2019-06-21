@@ -3,9 +3,9 @@ package array;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ArrayPermutation {
+public class Permutation {
     public static void main(String... a) {
-        System.out.println(new ArrayPermutation().permute(new int[]{1, 2, 3}));
+        System.out.println(new Permutation().permute(new int[]{1, 2, 3}));
     }
 
     public List<List<Integer>> permute(int[] nums) {
