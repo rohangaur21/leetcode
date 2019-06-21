@@ -4,10 +4,10 @@ import java.util.*;
 
 public class ArrayTwoSum {
     public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<Integer, Integer>();
+        Map<Integer, Integer> map = new HashMap<Integer, Integer>(); // Map to store current number and its index
         for (int i = 0; i < nums.length; i++) {
             int key = target - nums[i];
-            if (map.containsKey(key)) {
+            if (map.containsKey(key)) {     // If helper number to target is present in the map or not.
                 int val = map.get(key);
                 return new int[]{val, i};
             }
