@@ -1,61 +1,68 @@
 package game;
 
-import java.util.Arrays;
-
 public class Minesweeper {
-    public static int[] DIRECTIONS = {0, -1, 0, 1, 0};
+    public static int[][] DIRECTIONS = {{0, 1}, {1, 1}, {1, 0}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
     public static int lenX;
     public static int lenY;
 
-    public static void show(char[][] board, int x, int y) {
+    public static void show(char[][] board, int x, int y, boolean[][] visited) {
+        if (invalid(x, y) || visited[x][y]) {
+            return;
+        }
         if (board[x][y] == 'M') {
             board[x][y] = 'X';
             return;
-        } else if (board[x][y] == 'E') {
-            for (int i = 0; i < DIRECTIONS.length - 1; i++) {
-                int xx = x + DIRECTIONS[i];
-                int yy = y + DIRECTIONS[i + 1];
-                if (valid(xx, yy)) {
-                    if (hasMine(board, xx, yy)) {
-                        board[x][y] = '1';
-                    } else {
-                        board[x][y] = 'B';
-                        show(board, xx, yy);
+        }
+        visited[x][y] = true;
+        if (board[x][y] == 'E') {
+            board[x][y] = 'B';
+            boolean hasMine = false;
+            for (int i = 0; i < DIRECTIONS.length; i++) {
+                int xx = x + DIRECTIONS[i][0];
+                int yy = y + DIRECTIONS[i][1];
+                if (!invalid(xx, yy) && (board[xx][yy] == 'M' || board[xx][yy] == 'X')) {
+                    if(board[xx][yy]=='M'){
+                        board[xx][yy] = 'X';
                     }
+                    hasMine = true;
+                    break;
                 }
             }
-        } else if (board[x][y] == '1') {
-            return;
-        } else if (board[x][y] == 'B') {
-            return;
+            if (hasMine) {
+                board[x][y] = '1';
+                return;
+            }
+            for (int i = 0; i < DIRECTIONS.length; i++) {
+                int xx = x + DIRECTIONS[i][0];
+                int yy = y + DIRECTIONS[i][1];
+                show(board, xx, yy, visited);
+            }
         }
-
-
     }
 
-    private static boolean hasMine(char[][] board, int x, int y) {
-//        System.out.println(board[x][y] + "" + x + "" + y);
-        if (board[x][y] == 'M') return true;
-        return false;
-    }
 
-    private static boolean valid(int x, int y) {
-        if (x >= 0 && y >= 0 && x < lenX && y < lenY) {
-            return true;
+    private static boolean invalid(int x, int y) {
+        boolean flag = false;
+        if (x < 0 || y < 0 || x > lenX - 1 || y > lenY - 1) {
+            flag = true;
         }
-        return false;
+        return flag;
     }
 
     public static void main(String[] args) {
-        char[][] board = {{'E', 'E', 'E', 'E', 'E'},
-                {'E', 'E', 'M', 'E', 'E'},
+        char[][] board = {//
+                {'E', 'E', 'E', 'E', 'E'},
+                {'M', 'E', 'E', 'E', 'E'},
+                {'E', 'E', 'E', 'M', 'E'},
                 {'E', 'E', 'E', 'E', 'E'},
                 {'E', 'E', 'E', 'E', 'E'}};
+        lenX = board.length;
+        lenY = board[lenX - 1].length;
+
         prints(board);
-//        lenX = board.length;
-//        lenY = board[lenX - 1].length;
-//        show(board, 3, 0);
-//        prints(board);
+        show(board, 3, 0, new boolean[lenX][lenY]);
+        System.out.println("----");
+        prints(board);
     }
 
     public static void prints(char[][] chars) {
@@ -63,7 +70,7 @@ public class Minesweeper {
             for (int j = 0; j < lenY; j++) {
                 System.out.print(chars[i][j]);
             }
-            System.out.println();
+            System.out.println("");
         }
     }
 }
