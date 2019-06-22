@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 
 /*
-* You're now a baseball game point recorder.
+* You're now a baseball misc point recorder.
 
 Given a list of strings, each string can be one of the 4 following types:
 

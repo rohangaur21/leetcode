@@ -1,4 +1,4 @@
-package game;
+package misc;
 
 public class Minesweeper {
     public static int[][] DIRECTIONS = {{0, 1}, {1, 1}, {1, 0}, {-1, 1}, {-1, 0}, {-1, -1}, {0, -1}, {1, -1}};
