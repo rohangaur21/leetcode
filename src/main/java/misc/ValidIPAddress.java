@@ -1,3 +1,5 @@
+package misc;
+
 public class ValidIPAddress {
     public String validIPAddress(String IP) {
         if (IP.length() < 7 || IP == null) {

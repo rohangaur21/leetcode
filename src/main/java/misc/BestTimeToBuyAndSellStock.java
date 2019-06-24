@@ -1,3 +1,5 @@
+package misc;
+
 public class BestTimeToBuyAndSellStock {
     public int maxProfit1(int[] prices) {
         int len = prices.length;

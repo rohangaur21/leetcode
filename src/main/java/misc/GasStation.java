@@ -1,3 +1,5 @@
+package misc;
+
 //
 //There are N gas stations along a circular route, where the amount of gas at station i is gas[i].
 //
@@ -41,7 +43,7 @@
 //        Travel to station 1. Your tank = 3 - 3 + 3 = 3
 //        You cannot travel back to station 2, as it requires 4 unit of gas but you only have 3.
 //        Therefore, you can't travel around the circuit once no matter where you start.
-public class iGasStation {
+public class GasStation {
     public int canCompleteCircuit(int[] gas, int[] cost) {
         int size = gas.length;
         int sum = 0;
@@ -62,7 +64,7 @@ public class iGasStation {
     }
 
     public static void main(String[] args) {
-        iGasStation g = new iGasStation();
+        GasStation g = new GasStation();
         System.out.println(g.canCompleteCircuit(new int[]{1, 2, 3, 4, 5}, new int[]{3, 4, 5, 1, 2}));
     }
 }

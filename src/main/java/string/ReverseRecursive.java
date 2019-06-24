@@ -1,4 +1,6 @@
-public class StringReverseRecursive {
+package string;
+
+public class ReverseRecursive {
     public static void reverseString(char[] s) {
         helper(s, 0, s.length - 1);
     }

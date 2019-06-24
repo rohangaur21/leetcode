@@ -1,3 +1,5 @@
+package misc;
+
 /*
 Given n non-negative integers representing an elevation map where the width of each bar is 1,
 compute how much water it is able to trap after raining.
@@ -11,7 +13,7 @@ Example:
 Input: [0,1,0,2,1,0,1,3,2,1,2,1]
 Output: 6
 */
-public class iRainWaterTrap {
+public class RainWaterTrap {
     public int trap(int[] height) {
         int len = height.length;
         if (len < 3) {
