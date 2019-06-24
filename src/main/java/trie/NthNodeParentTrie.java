@@ -1,56 +1,56 @@
 package trie;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 public class NthNodeParentTrie {
+
+    static public TrieNode root;
+    static int pid = 1;
+
     static class TrieNode {
         Integer data;
-        List<TrieNode> children = new ArrayList<>();
+        Map<Integer, TrieNode> children;
 
         TrieNode(Integer c) {
             this.data = c;
+            this.children = new HashMap<>(c + 1);
+
         }
     }
 
-    public static void main(String[] args) {
-        TrieNode root = new TrieNode(1);
-        System.out.println("ANS " + findParent(root, 6));
-
-    }
-
-    public static int findParent(TrieNode t, int child) {
-        int pid = t.data;
-        int tot = t.children.size();
-        for ( int i = 0; i <=t.data; i++ ) {
-            System.out.println(pid + "=" + t.children.size());
-            int count = 1;
-            while (count <= t.data) {
-                pid = pid + 1;
-                if (pid == child) {
-                    return t.data;
+    public static int helper(List<TrieNode> tns, int pid_end) {
+        List<TrieNode> list = new ArrayList<>();
+        for (TrieNode tn : tns) {
+            for (int i = 0; i < tn.data; i++) {
+                if (pid_end - pid == 1) {
+                    return tn.data;
                 }
-                t.children.add(new TrieNode(pid));
-                count++;
-                print(t, pid);
-                if (t.children.size() == 10) {
-                    return 0;
-                }
+                TrieNode t = new TrieNode(++pid);
+                tn.children.put(pid, t);
+                list.add(t);
             }
-            t=t.children.get(0);
-            System.out.println(t.data+" "+t.children.size());
-            print(t, pid);
+            print(new ArrayList<>(tn.children.values()));
         }
-        return 0;
+        return helper(list, pid_end);
     }
 
-    public static void print(TrieNode t, int pid) {
 
-        System.out.print("pid="+pid + "---> ");
-        for ( TrieNode tt : t.children ) {
-            System.out.print(tt.data+", ");
+    public static void print(List<TrieNode> list) {
+        System.out.print("child --> ");
+        for (TrieNode t : list) {
+            System.out.print(t.data + ",");
         }
         System.out.println("\n");
     }
+
+    public static void main(String[] args) {
+        root = new TrieNode(1);
+        System.out.println("ANS " + helper(Arrays.asList(root), 34));
+
+    }
+
 }
