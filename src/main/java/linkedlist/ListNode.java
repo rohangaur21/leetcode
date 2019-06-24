@@ -14,7 +14,6 @@ public class ListNode<T extends Comparable<T>> {
         return String.valueOf(data);
     }
 
-
     public void print() {
         if (this == null) {
             System.out.println("There is no node");

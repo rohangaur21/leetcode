@@ -1,25 +1,12 @@
-package string;/*
-* Given a string s, find the longest palindromic substring in s. You may assume that the maximum length of s is 1000.
-
-Example 1:
-
-Input: "babad"
-Output: "bab"
-Note: "aba" is also a valid answer.
-Example 2:
-
-Input: "cbbd"
-Output: "bb"
-* */
+package string;
 
 public class LongestPalindrome {
-    public String longestPalindrome(String s) {
+    public static String longestPalindrome(String s) {
         String palin = "";
-        String sub = null;
         for (int i = 0; i < s.length(); i++) {
             for (int j = i; j < s.length(); j++) {
-                sub = s.substring(i, j + 1);
-                if (isPalindrome(sub)) {
+                String sub = s.substring(i, j + 1);
+                if (isPalindrome(sub, 0, sub.length() - 1)) {
                     if (palin.length() < sub.length()) {
                         palin = sub;
                     }
@@ -29,15 +16,19 @@ public class LongestPalindrome {
         return palin;
     }
 
-    public boolean isPalindrome(String s) {
-        int slen = s.length();
-        int index = 0;
-        while (index < (slen / 2)) {
-            if (s.charAt(index) != s.charAt(slen - index - 1)) {
-                return false;
-            }
-            index++;
-        }
+    public static boolean isPalindrome(String s, int i, int j) {
+        if (i == j) return true;
+        if (s.charAt(i) != s.charAt(j)) return false;
+        if (i < j) return isPalindrome(s, i + 1, j - 1);
         return true;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(longestPalindrome("babab"));
+        System.out.println(longestPalindrome(""));
+        System.out.println(longestPalindrome("bb"));
+        System.out.println(longestPalindrome("aaa"));
+        System.out.println(longestPalindrome("rohan"));
+        System.out.println(longestPalindrome("zzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzzz"));
     }
 }
