@@ -3,7 +3,7 @@ package tree;
 import java.util.Arrays;
 
 public class iMazeHasPath {
-    private static final int[] DIRECTIONS = {0, 1, 0, -1, 0};
+    private static final int[][] DIRECTIONS = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
     public boolean hasPath(int[][] maze, int[] start, int[] destination) {
         boolean[][] visited = new boolean[maze.length][maze[0].length];
@@ -20,8 +20,8 @@ public class iMazeHasPath {
 
         visited[start[0]][start[1]] = true;
 
-        for (int i = 0; i < DIRECTIONS.length - 1; i++) {
-            int[] newStart = roll(maze, start[0], start[1], DIRECTIONS[i], DIRECTIONS[i + 1]);
+        for ( int i = 0; i < DIRECTIONS.length; i++ ) {
+            int[] newStart = roll(maze, start[0], start[1], DIRECTIONS[i][0], DIRECTIONS[i][1]);
             if (dfs(maze, visited, newStart, destination)) {
                 return true;
             }
