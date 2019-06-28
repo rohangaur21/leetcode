@@ -2,7 +2,7 @@ package tree;
 
 import java.util.Arrays;
 
-public class iMazeHasPath {
+public class iMazeHasPathDFS {
     private static final int[][] DIRECTIONS = {{0, 1}, {1, 0}, {0, -1}, {-1, 0}};
 
     public boolean hasPath(int[][] maze, int[] start, int[] destination) {
