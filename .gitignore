@@ -1,6 +1,7 @@
 /*.iml
 /.idea
 /.project
+/target/classes/
 /*/.project
 /.settings
 /*/.settings
