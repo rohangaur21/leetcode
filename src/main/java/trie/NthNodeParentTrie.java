@@ -49,7 +49,7 @@ public class NthNodeParentTrie {
 
     public static void main(String[] args) {
         root = new TrieNode(1);
-        System.out.println("ANS " + helper(Arrays.asList(root), 34));
+        System.out.println("ANS " + helper(Arrays.asList(root), 6));
 
     }
 
