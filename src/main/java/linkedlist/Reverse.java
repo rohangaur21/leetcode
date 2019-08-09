@@ -29,7 +29,10 @@ public class Reverse {
         if (head == null || head.next == null) return head;
         ListNode second = head.next;    //get second node
         head.next = null;//set first's next to be null
+
+        System.out.println("BF :"+ head.data +" - "+second.data);
         ListNode rest = reverseList3(second);
+        System.out.println("----AF :"+ head.data +" - "+second.data);
         second.next = head;
         return rest;
     }
@@ -44,9 +47,7 @@ public class Reverse {
         list.addNode(7);
         list.printNodes();
         System.out.println("----");
-        reverseList3(list.head);
         ListNode ln = reverseList3(list.head);
         ln.print();
-        list.printNodes();
     }
 }
