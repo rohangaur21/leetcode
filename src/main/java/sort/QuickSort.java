@@ -1,4 +1,4 @@
-package array;
+package sort;
 
 public class QuickSort {
     public static void main(String... a) {
