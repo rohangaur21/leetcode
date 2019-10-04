@@ -1,7 +1,16 @@
 package sort;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class BubbleSort {
-}
+    int iterationCount = 0;
+
+    public static void main(String[] args) {
+        BubbleSort bs = new BubbleSort();
+        System.out.println(bs.getSortedList(Arrays.asList(3, 5, 2, 8, 5, 1, 0)));
+
+    }
 
     private List<Integer> getSortedList(List<Integer> integerList) {
         int temp = 0;
@@ -27,3 +36,4 @@ public class BubbleSort {
         list.set(pos2, temp);
         iterationCount++;
     }
+}
