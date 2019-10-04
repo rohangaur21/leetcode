@@ -72,6 +72,12 @@ public class Main {
 
         System.out.println("Printing all nodes through printnode function of Back Split after frontBackSplit function");
         printNode(frontBackSplit.get(1));
+
+        System.out.println("BEFORE");
+        n.printNodes();
+        n.reverseList();
+        System.out.println("AFTER");
+        n.printNodes();
     }
 
 
