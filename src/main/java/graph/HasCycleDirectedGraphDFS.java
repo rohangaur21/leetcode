@@ -9,7 +9,7 @@ public class HasCycleDirectedGraphDFS {
     private static Graph graph;
 
     public static void main(String[] args) {
-        graph = new AdjacencyMatrixGraph(N, Graph.GraphType.DIRECTED);
+        graph = (Graph) new AdjacencyMatrixGraph(N, Graph.GraphType.DIRECTED);
         graph.addEdge(1, 0);
         graph.addEdge(1, 2);
         graph.addEdge(7, 2);
