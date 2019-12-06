@@ -1,3 +1,5 @@
+package array;
+
 import java.util.*;
 
 /*
@@ -17,7 +19,7 @@ A solution set is:
   [-1, 0, 1],
   [-1, -1, 2]
 ]*/
-public class iThreeSum {
+public class ThreeSum {
     public List<List<Integer>> threeSum(int[] nums) {
         Set<List<Integer>> ans = new TreeSet<List<Integer>>(new Comparator<List<Integer>>() {
                 @Override
@@ -50,7 +52,7 @@ public class iThreeSum {
     }
 
     public static void main(String... a) {
-        iThreeSum s = new iThreeSum();
+        ThreeSum s = new ThreeSum();
         System.out.println(s.threeSum(new int[]{-4, -2, 1, -5, -4, -4, 4, -2, 0, 4, 0, -2, 3, 1, -5, 0}));
     }
 }
