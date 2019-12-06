@@ -2,7 +2,7 @@ package array;
 
 import java.util.*;
 
-public class TwoSum {
+public class TwoSum_EqToTarget {
     public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> map = new HashMap<Integer, Integer>(); // Map to store current number and its index
         for (int i = 0; i < nums.length; i++) {
