@@ -1,5 +1,7 @@
 package misc;
 
+import java.util.Arrays;
+
 /*
 * On a staircase, the i-th step has some non-negative cost cost[i] assigned (0 indexed).
 
@@ -19,14 +21,16 @@ cost will have a length in the range [2, 1000].
 Every cost[i] will be an integer in the range [0, 999].
 */
 public class MinCostClimbingSteps {
-    public int minCostClimbingStairs(int[] cost) {
-        int min = 0;
+    public static int minCostClimbingStairs(int[] cost) {
+        System.out.println(Arrays.toString(cost));
         for (int i = 2; i < cost.length; i++) {
-            min = Math.min(cost[i - 1], cost[i - 2]);
-            cost[i] += min;
-            System.out.println(i + "__" + min + "__" + cost[i]);
+            cost[i] += Math.min(cost[i - 1], cost[i - 2]);
         }
-        ;
+        System.out.println(Arrays.toString(cost));
         return Math.min(cost[cost.length - 1], cost[cost.length - 2]);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(minCostClimbingStairs(new int[]{2,3,1,1,4, 5}));
     }
 }
