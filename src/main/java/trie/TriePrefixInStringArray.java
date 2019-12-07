@@ -2,24 +2,25 @@ package trie;
 
 import java.util.*;
 
-class Solution {
+class TriePrefixInStringArray {
     public static String solution(String[] strings) {
         if (strings == null) return null;
-
-
         TrieNode root = new TrieNode(' ');
         for (String string : strings) {
             insertWords(root, string);
         }
-
-        return getPrefix(root, "");
+        return getPrefix(root, strings[0]);
     }
 
-    public static String getPrefix(TrieNode root, String result) {
-        if (root.children.size() != 1) {
-            return "";
+    public static String getPrefix(TrieNode root, String string) {
+        String result = "";
+        for (char c : string.toCharArray()) {
+            if (root.children.size() == 1) {
+                result += c;
+                root = root.children.get(c);
+            }
         }
-        return getPrefix(root.children.get(' '), result + 'c');
+        return result;
     }
 
     public static void insertWords(TrieNode root, String word) {
