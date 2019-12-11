@@ -3,64 +3,81 @@ package string;
 import java.util.*;
 
 public class WordLadder {
-    private class Node {
-        String val;
-        int level;
+    Set<String> wordSet;
 
-        Node(String val, int level) {
-            this.val = val;
-            this.level = level;
+    public List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
+        wordSet = new HashSet(wordList);
+        Map<String, List<String>> parentMap = new HashMap();
+        for (String str : wordList) {
+            parentMap.put(str, new ArrayList<String>());
         }
+        Map<String, Integer> distance = new HashMap();
+        List<List<String>> result = new ArrayList();
+        if (!bfs(beginWord, endWord, parentMap, distance)) {
+            return result;
+        }
+        dfs(endWord, beginWord, parentMap, result, new ArrayList<String>());
+        return result;
     }
 
-    public int ladderLength(String beginWord, String endWord, List<String> wordList) {
-        // Breadth First Search
-        Queue<Node> queue = new LinkedList();
-
-        // put original world as a root node
-        queue.add(new Node(beginWord, 0));
-
-        // don't check words twice
-        Set<String> checked = new HashSet();
-
+    public boolean bfs(String beginWord, String endWord, Map<String, List<String>> parentMap, Map<String, Integer> distance) {
+        Queue<String> queue = new LinkedList<>();
+        queue.add(beginWord);
+        distance.put(beginWord, 0);
+        boolean found = false;
         while (!queue.isEmpty()) {
-            Node word = queue.remove();
+            int s = queue.size();
+            while (s > 0) {
+                String parent = queue.poll();
+                int level = distance.get(parent);
+                List<String> neigh = findNeighbours(parent);
+                for (String str : neigh) {
+                    if (str.equals(endWord)) found = true;
+                    if (!distance.containsKey(str)) {
+                        distance.put(str, level + 1);
+                        parentMap.get(str).add(parent);
+                        queue.add(str);
+                    } else if (distance.get(str) == level + 1) {
+                        parentMap.get(str).add(parent);
+                    }
 
-            if (word.val.equals(endWord)) {
-                return word.level + 1;
-            }
-
-            for (String w : wordList) {
-                String key = w;
-                if (!checked.contains(key) && isOnlyOneLetterDifference(w, word.val)) {
-                    queue.add(new Node(w, word.level + 1));
-                    checked.add(key);
                 }
+                s--;
             }
         }
-        return 0;
+        return found;
     }
 
-    /*
-     * validate two strings
-     * rule: only one letter can be changed at a time
-     */
-    private boolean isOnlyOneLetterDifference(String current, String destination) {
-        // the rule: all words have the same length.
-        if (current.length() != destination.length()) {
-            return false;
+    public void dfs(String curr, String beginWord, Map<String, List<String>> parentMap, List<List<String>> result, List<String> path) {
+        if (curr.equals(beginWord)) {
+            List<String> tmp = new ArrayList(path);
+            tmp.add(beginWord);
+            Collections.reverse(tmp);
+            result.add(tmp);
+        } else {
+            path.add(curr);
+            for (String par : parentMap.get(curr)) {
+                dfs(par, beginWord, parentMap, result, path);
+            }
+            path.remove(path.size() - 1);
         }
+    }
 
-        int count = 0;
-        for (int i = 0; i < current.length(); i++) {
-            if (current.charAt(i) != destination.charAt(i)) {
-                count++;
-
-                if (count > 1) {
-                    return false;
+    public List<String> findNeighbours(String word) {
+        int n = word.length();
+        char[] chArr = word.toCharArray();
+        List<String> result = new ArrayList();
+        for (int i = 0; i < n; i++) {
+            char temp = chArr[i];
+            for (char c = 'a'; c <= 'z'; c++) {
+                chArr[i] = c;
+                String wrd = new String(chArr);
+                if (wordSet.contains(wrd)) {
+                    result.add(wrd);
                 }
             }
+            chArr[i] = temp;
         }
-        return count == 1;
+        return result;
     }
 }
