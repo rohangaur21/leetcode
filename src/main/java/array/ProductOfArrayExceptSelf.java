@@ -17,14 +17,16 @@ public class ProductOfArrayExceptSelf {
         // fill with product of right side
         int R = nums[nums.length - 1];
         for (int i = nums.length - 2; i >= 0; i--) {
+            System.out.print(answer[i]+"x"+R);
             answer[i] = answer[i] * R;
             R = R * nums[i];
+            System.out.print("=>"+answer[i]+","+R+" ");
         }
         return answer;
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(productExceptSelf(new int[]{1, 2, 3, 4})));
+        System.out.println("\n"+Arrays.toString(productExceptSelf(new int[]{2, 3, 4, 5})));
         //[24,12,8,6]
     }
 }

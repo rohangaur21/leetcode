@@ -32,6 +32,7 @@ public class MergeIntervals {
     }
 
     public static void main(String[] args) {
-        System.out.println(Arrays.toString(merge(new int[][]{{8,10},{1,3},{2,6},{15,18}})));
+        for(int [] i: merge(new int[][]{{8,10},{1,3},{2,6},{15,18}}))
+            System.out.println(Arrays.toString(i));
     }
 }
