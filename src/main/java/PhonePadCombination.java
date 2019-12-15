@@ -9,9 +9,9 @@ public class PhonePadCombination {
             return combination;
         }
         String[] s = {"", "", "abc", "def", "ghi", "jkl", "mno", "pqrs", "tuv", "wxyz"};
-
-        for (int i = 0; i < s[Integer.parseInt(digits.charAt(0) + "")].length(); i++) {
-            combination.add(s[Integer.parseInt(digits.charAt(0) + "")].charAt(i) + "");
+        int d1 = Integer.parseInt(digits.charAt(0)+"");
+        for (int i = 0; i < s[d1].length(); i++) {
+            combination.add(s[d1].charAt(i) + "");
         }
 
         System.out.println(combination);

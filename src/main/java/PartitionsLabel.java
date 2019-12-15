@@ -18,26 +18,30 @@ S will consist of lowercase letters ('a' to 'z') only.
 
 */
 public class PartitionsLabel {
-    public List<Integer> partitionLabels(String S) {
+    public List<Integer> partitionLabels(String str) {
         List<Integer> out = new ArrayList<>();
         Map<Character, Integer> map = new HashMap<>();
-
         //Getting last index of each character
-        for (int i = 0; i < S.length(); i++) {
-            map.put(S.charAt(i), i);
+        for (int i = 0; i < str.length(); i++) {
+            map.put(str.charAt(i), i);
         }
-        Integer end = 0, begin = 0;
-        System.out.print(map);
-        for (int i = 0; i < S.length(); i++) {
-            Integer index = map.get(S.charAt(i));
-            if (index.intValue() > end.intValue()) {
-                end = index;
+        System.out.println(map);
+
+        int begin = 0, end = 0;
+        for (int idx = 0; idx < str.length(); idx++) {
+            int val = map.get(str.charAt(idx));
+            if (val > end) {
+                end = val;
             }
-            if (i == end.intValue()) {
-                out.add(end.intValue() - begin.intValue() + 1);
-                begin = i + 1;
+            if (idx == end) {
+                out.add(end - begin + 1);
+                begin = idx + 1;
             }
         }
         return out;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("\n" + new PartitionsLabel().partitionLabels("ababcbacadefegdehijhklij"));
     }
 }

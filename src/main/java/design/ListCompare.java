@@ -1,3 +1,5 @@
+package design;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,11 +46,11 @@ public class ListCompare {
 //                "If all numbers from aList are present in List 2 :" +
 //                        list1.stream().allMatch(num -> list2.contains(num)));
 //
-//        Predicate<CompareWalletOptionType> notIn2 = s -> ! list2.stream().allMatch(mc -> s.equals(mc.getWalletOptionType()));
-//        List<CompareWalletOptionType> list3 = list1.stream().filter(notIn2).collect(Collectors.toList());
+//        Predicate<design.CompareWalletOptionType> notIn2 = s -> ! list2.stream().allMatch(mc -> s.equals(mc.getWalletOptionType()));
+//        List<design.CompareWalletOptionType> list3 = list1.stream().filter(notIn2).collect(Collectors.toList());
 //
 //
-//        List<CompareWalletOptionType> l3 =list1.stream().filter(x -> list2.contains(x)).collect(Collectors.toList());
+//        List<design.CompareWalletOptionType> l3 =list1.stream().filter(x -> list2.contains(x)).collect(Collectors.toList());
 
         List<CompareWalletOptionType> l4 = new ArrayList<>();
         lc.getList1().forEach(p ->

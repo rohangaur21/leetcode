@@ -28,12 +28,13 @@ public class Subset {
         return ans;
     }
 
-    public void helper(List<List<Integer>> ans, List<Integer> list, int[] nums, int i) {
-        for (int j = i; j < nums.length; j++) {
+    public void helper(List<List<Integer>> ans, List<Integer> list, int[] nums, int index) {
+        for (int idx = index; idx < nums.length; idx++) {
             List<Integer> temp = new LinkedList<>(list);
-            temp.add(nums[j]);
+            temp.add(nums[idx]);
             ans.add(temp);
-            helper(ans, temp, nums, j + 1);
+            System.out.println(idx+"=>"+nums[idx]+" = "+temp.toString());
+            helper(ans, temp, nums, idx + 1);
         }
     }
 
