@@ -39,6 +39,11 @@ rotate the input matrix in-place such that it becomes:
   [12, 6, 8, 9],
   [16, 7,10,11]
 ]
+
+// i => 0 to middle
+// j => i to n-i-j
+// swap => i$j, j$n-1-j, n-1-i$n-1-j, n-1-j$i
+
 */public class TwoDRotateMatrix {
     public void rotate(int[][] matrix) {
         if (matrix.length <= 1) {
@@ -47,17 +52,17 @@ rotate the input matrix in-place such that it becomes:
         int n = matrix.length;
         int middle = n / 2;
 
-        for (int i = 0; i < middle; i++) {
-            for (int j = i; j < (n - 1 - i); j++) {
-                int _1 = matrix[i][j];
-                int _2 = matrix[j][n - 1 - i];
-                int _3 = matrix[n - 1 - i][n - 1 - j];
-                int _4 = matrix[n - 1 - j][i];
+        for (int idx = 0; idx < middle; idx++) {
+            for (int j = idx; j < (n - 1 - idx); j++) {
+                int _1 = matrix[idx][j];
+                int _2 = matrix[j][n - 1 - idx];
+                int _3 = matrix[n - 1 - idx][n - 1 - j];
+                int _4 = matrix[n - 1 - j][idx];
 
-                matrix[j][n - 1 - i] = _1;
-                matrix[n - 1 - i][n - 1 - j] = _2;
-                matrix[n - 1 - j][i] = _3;
-                matrix[i][j] = _4;
+                matrix[j][n - 1 - idx] = _1;
+                matrix[n - 1 - idx][n - 1 - j] = _2;
+                matrix[n - 1 - j][idx] = _3;
+                matrix[idx][j] = _4;
 
             }
         }

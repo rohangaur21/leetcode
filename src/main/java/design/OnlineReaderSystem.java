@@ -3,6 +3,9 @@ package design;
 import java.util.HashMap;
 
 public class OnlineReaderSystem {
+
+    // Library, Book, User, UserManager, Display
+
     private Library library = new Library();
     private UserManager userManager = new UserManager();
     private Display display = new Display();
@@ -10,51 +13,51 @@ public class OnlineReaderSystem {
     private User activeUser;
     //    setActiveBook   activeBook=book & display.displayBook(book);
     //    setActiveUser   activeUser=user & display.displayUser(user);
-}
 
-class Library {
-    private HashMap<Integer, Book> books = new HashMap<>();
-    // boolean addBook(Book book)
-    // boolean remove(Book b)
-    // Book find(int id)
-}
 
-class UserManager {
-    private HashMap<Integer, User> users = new HashMap<Integer, User>();
-    // boolean addUser(User user)
-    // boolean remove(User user)
-    // User find(int id)
-}
+    class Library {
+        private HashMap<Integer, Book> books = new HashMap<>();
+        // boolean addBook(Book book)
+        // boolean remove(Book b)
+        // Book find(int id)
+    }
 
-class Display {
-    private Book activeBook;
-    private User activeUser;
-    private int pageNumber = 0;
+    class UserManager {
+        private HashMap<Integer, User> users = new HashMap<Integer, User>();
+        // boolean addUser(User user)
+        // boolean remove(User user)
+        // User find(int id)
+    }
 
-    // void displayUser(User user) => activeUser = user; refreshUsername();
-    // void displayBook(Book book) => pageNumber = 0; activeBook = book; refreshTitle(); refreshDetails(); refreshPage();
-    // void turnPageForward() => pageNumber++; refreshPage();
-    // void turnPageBackward() => pageNumber--; refreshPage();
-    // void refreshUsername();
-    // void refreshTitle();
-    // void refreshDetails();
-    // void refreshPage();
-}
+    class Display {
+        private Book activeBook;
+        private User activeUser;
+        private int pageNumber = 0;
 
-class Book {
-    private int bookId;
-    private String details;
-    private String title;
-}
+        // void displayUser(User user) => activeUser = user; refreshUsername();
+        // void displayBook(Book book) => pageNumber = 0; activeBook = book; refreshTitle(); refreshDetails(); refreshPage();
+        // void turnPageForward() => pageNumber++; refreshPage();
+        // void turnPageBackward() => pageNumber--; refreshPage();
+        // void refreshUsername();
+        // void refreshTitle();
+        // void refreshDetails();
+        // void refreshPage();
+    }
 
-class User {
-    private int userId;
-    private String name;
-    private String details;
-    // void renewMembership();
-}
+    class Book {
+        private int bookId;
+        private String details;
+        private String title;
+    }
 
-class AppTest {
+    class User {
+        private int userId;
+        private String name;
+        private String details;
+        // void renewMembership();
+    }
+
+
     public static void main(String[] args) {
         OnlineReaderSystem onlineReaderSystem = new OnlineReaderSystem();
 //        Book dsBook = new Book(1, "It contains Data Structures", "Ds");
