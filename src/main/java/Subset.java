@@ -3,23 +3,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Subset {
-    public List<List> subsets1(int[] nums) {
-        int n = nums.length;
-        List<List> ans = new ArrayList<>();
-        for (int i = 0; i < Math.pow(2, n); i++) {
-            List list = new ArrayList<>();
-            int index = i;
-            int bit = 0;
-            while (index > 0) {
-                if ((index & 1) == 1) list.add(nums[bit]);
-                index >>= 1;
-                bit++;
-            }
-            ans.add(list);
-        }
-        return ans;
-    }
-
     public List<List<Integer>> subsets2(int[] nums) {
         List<List<Integer>> ans = new LinkedList<>();
         List<Integer> list = new LinkedList<>();

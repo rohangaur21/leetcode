@@ -26,9 +26,6 @@ public class ReverseWords {
             if (s.charAt(i) == ' ') {
                 res += dfs(s.substring(i), i+1, res);
             }
-//            else{
-//                res += s.charAt(i);
-//            }
         }
         return res;
     }
@@ -38,15 +35,15 @@ public class ReverseWords {
         String s1 = "the sky is blue";
         String s2 = "  hello world!  ";
         String s3 = "a good   example";
-//        System.out.println("-"+new ReverseWords().reverseWords(s)+"-");
-//        System.out.println("-"+new ReverseWords().reverseWords(s1)+"-");
-//        System.out.println("-"+new ReverseWords().reverseWords(s2)+"-");
-//        System.out.println("-"+new ReverseWords().reverseWords(s3)+"-");
+        System.out.println("-"+new ReverseWords().reverseWords(s)+"-");
+        System.out.println("-"+new ReverseWords().reverseWords(s1)+"-");
+        System.out.println("-"+new ReverseWords().reverseWords(s2)+"-");
+        System.out.println("-"+new ReverseWords().reverseWords(s3)+"-");
 
 
         System.out.println("-" + new ReverseWords().reverseWords2(s) + "-");
-//        System.out.println("-"+new ReverseWords().reverseWords(s1)+"-");
-//        System.out.println("-"+new ReverseWords().reverseWords(s2)+"-");
-//        System.out.println("-"+new ReverseWords().reverseWords(s3)+"-");
+        System.out.println("-"+new ReverseWords().reverseWords(s1)+"-");
+        System.out.println("-"+new ReverseWords().reverseWords(s2)+"-");
+        System.out.println("-"+new ReverseWords().reverseWords(s3)+"-");
     }
 }

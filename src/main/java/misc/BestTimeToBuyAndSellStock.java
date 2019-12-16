@@ -15,6 +15,7 @@ public class BestTimeToBuyAndSellStock {
     }
 
     public int maxProfit2(int[] prices) {
+        //{7, 1, 5, 3, 6, 4};
         int len = prices.length;
         int max = 0;
         int min = Integer.MAX_VALUE;

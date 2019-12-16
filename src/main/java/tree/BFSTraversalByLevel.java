@@ -1,8 +1,10 @@
+package tree;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class BTTraversalBFSByLevel {
+public class BFSTraversalByLevel {
     public class TreeNode {
         int val;
         TreeNode left;

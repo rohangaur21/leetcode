@@ -1,9 +1,6 @@
 package tree;
 
-import java.util.ArrayDeque;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Queue;
+import java.util.*;
 
 class BinaryTreeNode {
     Integer data;
@@ -18,7 +15,9 @@ class BinaryTreeNode {
 
     public static BinaryTreeNode initBinaryTree(List<Integer> values) {
         BinaryTreeNode root = null;
-        if (values == null || values.isEmpty()) return root;
+        if (values == null || values.isEmpty())
+            return root;
+
         Iterator<Integer> iter = values.iterator();
         root = new BinaryTreeNode(iter.next());
         Queue<BinaryTreeNode> queue = new ArrayDeque<>();
@@ -36,9 +35,14 @@ class BinaryTreeNode {
     }
 
     public static void printData(String prefix , BinaryTreeNode node) {
-        if (node == null) System.out.println(prefix + " => data (null)");
+        if (node == null)
+            System.out.println(prefix + " => data (null)");
         else
             System.out.println(prefix + " => data (" + node.data + ") left (" + (node.left == null ? null : node.left.data) + ") right (" + (node.right == null ? null : node.right.data)+")");
+    }
 
+    public static void main(String[] args) {
+        BinaryTreeNode root = BinaryTreeNode.initBinaryTree(Arrays.asList(1,2,3,4,5,6,7,8,9,0));
+        BinaryTreeNode.printData("3", root);
     }
 }

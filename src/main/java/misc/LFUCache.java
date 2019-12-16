@@ -5,7 +5,6 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class LFUCache {
-
     class Cache {
         int data;
         int frequency;
@@ -15,15 +14,12 @@ public class LFUCache {
             this.frequency = 1;
         }
     }
-
     private Map<Integer, Cache> lfu = null;
     private int capacity;
-
     public LFUCache(int capacity) {
         this.lfu = new LinkedHashMap<>(capacity);
         this.capacity = capacity;
     }
-
 
     public int get(int key) {
         if (lfu.get(key) == null) return -1;

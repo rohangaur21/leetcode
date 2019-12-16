@@ -37,8 +37,8 @@ public class WordSearchInMatrix {
 
     public void dfs(char[][] board, int i, int j, TrieNode t, List<String> res) {
         char c = board[i][j];
-
-        if (c == '#' || t.children.get(c) == null) return;
+        if (c == '#' || t.children.get(c) == null)
+            return;
         t = t.children.get(c);
 
         if (t.word != null) {

@@ -33,6 +33,6 @@ public class PhonePadCombination {
     }
 
     public static void main(String[] args) {
-        System.out.println(new PhonePadCombination().letterCombinations("56"));
+        System.out.println(new PhonePadCombination().letterCombinations("567"));
     }
 }

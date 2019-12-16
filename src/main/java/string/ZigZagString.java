@@ -6,16 +6,16 @@ public class ZigZagString {
         return helper(x, 0);
     }
 
-    public int helper(int n, int pow){
-        System.out.println(n +" "+pow);
-        if(n < 10){
-            return (int) (n * Math.pow(10,pow));
+    public int helper(int n, int pow) {
+        System.out.println(n + " " + pow);
+        if (n < 10) {
+            return (int) (n * Math.pow(10, pow));
         }
-        return n%10 * 10^pow + helper(n/10, ++pow);
+        return n % 10 * 10 ^ pow + helper(n / 10, ++pow);
     }
 
     public static void main(String[] args) {
-
+        System.out.println(new ZigZagString().reverse(5));
 
     }
 }
