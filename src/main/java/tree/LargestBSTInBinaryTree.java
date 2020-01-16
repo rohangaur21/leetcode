@@ -10,7 +10,7 @@ public class LargestBSTInBinaryTree {
         int size = 0;
     }
 
-    private MinMax largest(BinaryTreeNode root) {
+    private MinMax largest(BTreeNode root) {
         if (root == null) {
             return new MinMax();
         }
@@ -31,9 +31,9 @@ public class LargestBSTInBinaryTree {
 
     public static void main(String args[]) {
         LargestBSTInBinaryTree obj = new LargestBSTInBinaryTree();
-        BinaryTreeNode root = BinaryTreeNode.initBinaryTree(Arrays.asList(-7, -6, -5, -4, -3, -2, 1, 2, 3, 16, 6, 10, 11, 12, 14));
+        BTreeNode root = BTreeNode.initBinaryTree(Arrays.asList(-7, -6, -5, -4, -3, -2, 1, 2, 3, 16, 6, 10, 11, 12, 14));
         System.out.println("Size of largest BST  is " + obj.largest(root).size);
-        root = BinaryTreeNode.initBinaryTree(Arrays.asList(3, -2, -3, -4, -5, -6, -7, 1, 2, 16, 10, 6, 12, 11, 14));
+        root = BTreeNode.initBinaryTree(Arrays.asList(3, -2, -3, -4, -5, -6, -7, 1, 2, 16, 10, 6, 12, 11, 14));
         System.out.println("Size of largest BST  is " + obj.largest(root).size);
     }
 }
