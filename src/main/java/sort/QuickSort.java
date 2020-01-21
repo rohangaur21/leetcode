@@ -1,6 +1,6 @@
 package sort;
 
-public class QuickSort {
+public class  QuickSort {
     public static void main(String... a) {
         int[] nums = new int[]{2, 3, 1, 0};
         sort(nums, 0, nums.length - 1);

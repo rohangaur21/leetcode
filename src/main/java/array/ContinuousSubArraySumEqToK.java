@@ -1,6 +1,5 @@
 package array;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -10,10 +9,12 @@ public class ContinuousSubArraySumEqToK {
         int ans = 0, sum = 0;
         for (int i : nums) {
             sum += i;
+            if (sum == k) {
+                ans++;
+            }
             ans += map.getOrDefault(sum - k, 0);
-            if (sum == k) ans++;
             map.put(sum, map.getOrDefault(sum, 0) + 1);
-            printMap(sum - k,map);
+            printMap(sum - k, map);
         }
 
         return ans;

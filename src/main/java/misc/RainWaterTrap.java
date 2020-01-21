@@ -21,7 +21,6 @@ public class RainWaterTrap {
         }
 
         int water = 0;
-        int leftmax = Integer.MIN_VALUE;
         int[] rightMax = new int[len];
 
         rightMax[len - 1] = height[len - 1];
@@ -31,6 +30,7 @@ public class RainWaterTrap {
         }
 
 
+        int leftmax = Integer.MIN_VALUE;
         System.out.println("\n");
         for (int i = 0; i < len; i++) {
             leftmax = Math.max(leftmax, height[i]);
