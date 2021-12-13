@@ -11,6 +11,7 @@ public class MedianInSortedArray {
         for (int i = 0; i < tot; i++) {
             newArray[i] = i < nums1.length ? nums1[i] : nums2[i - nums1.length];
         }
+        System.out.println(Arrays.toString(newArray));
         Arrays.sort(newArray);
 
         return tot % 2 == 0 ? (newArray[(tot / 2) - 1] + newArray[(tot / 2)]) / 2.0 : newArray[(tot) / 2];
@@ -45,7 +46,7 @@ public class MedianInSortedArray {
     public static void main(String[] args) {
         int[] arr1 = {1, 2, 3, 20};
         int[] arr2 = {7, 10};
-        double d = new MedianInSortedArray().findMedianSortedArrays(arr1, arr2);
+        double d = new MedianInSortedArray().findMedianSortedArrays2(arr1, arr2);
         System.out.println(d);
     }
 }

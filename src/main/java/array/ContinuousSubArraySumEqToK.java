@@ -11,23 +11,18 @@ public class ContinuousSubArraySumEqToK {
             sum += i;
             if (sum == k) {
                 ans++;
+                System.out.println("found");
             }
-            ans += map.getOrDefault(sum - k, 0);
+            System.out.println("i = "+i+", sum = "+ sum +", sum-("+k+") = "+ (sum-k)+", "+map);
+            ans += map.getOrDefault(sum-k, 0); // remove excess sum in past with sum-k
             map.put(sum, map.getOrDefault(sum, 0) + 1);
-            printMap(sum - k, map);
         }
 
         return ans;
     }
-
-    static void printMap(int tag, Map<Integer, Integer> map) {
-        System.out.print("\n" + tag + "=> ");
-        for (Integer i : map.keySet()) {
-            System.out.print(i + "-" + map.get(i) + " ");
-        }
-    }
-
     public static void main(String[] args) {
         System.out.println("\n" + subarraySum(new int[]{1, 2, 3, 4, 5, 6, 7}, 9));
     }
 }
+
+//k = sum + t => t = k - sum,
