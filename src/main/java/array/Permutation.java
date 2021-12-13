@@ -9,23 +9,24 @@ public class Permutation {
     }
 
     public List<List<Integer>> permute(int[] nums) {
-        List<List<Integer>> ans = new ArrayList<List<Integer>>();
+        List<List<Integer>> results = new ArrayList<List<Integer>>();
         if (nums == null || nums.length == 0) {
-            return ans;
+            return results;
         }
-        dfs(nums, ans, new ArrayList<>());
-        return ans;
+        dfs(nums, results, new ArrayList<>());
+        return results;
     }
 
-    public void dfs(int[] nums, List<List<Integer>> ans, List<Integer> result) {
-        if (nums.length == result.size()) {
-            ans.add(new ArrayList<>(result));
+    public void dfs(int[] nums, List<List<Integer>> results, List<Integer> res) {
+        if (nums.length == res.size()) {
+            results.add(new ArrayList<>(res));
         }
         for (int i = 0; i < nums.length; i++) {
-            if (!result.contains(nums[i])) {
-                result.add(nums[i]);
-                dfs(nums, ans, result);
-                result.remove(result.size() - 1);
+            System.out.println(i +" .. "+results+" = "+res);
+            if (!res.contains(nums[i])) {
+                res.add(nums[i]);
+                dfs(nums, results, res);
+                res.remove(res.size() - 1);
             }
         }
     }
