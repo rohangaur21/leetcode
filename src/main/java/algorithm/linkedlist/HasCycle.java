@@ -1,10 +1,12 @@
 package algorithm.linkedlist;
 
+import linkedlist.ListNode;
+
 public class HasCycle {
-    public boolean hasCycle(INode head) {
+    public boolean hasCycle(ListNode head) {
         if (head == null) return false;
-        INode walker = head;        // Ref walker to head
-        INode runner = head;        // Ref runner to head
+        ListNode walker = head;        // Ref walker to head
+        ListNode runner = head;        // Ref runner to head
         while (runner.next != null && runner.next.next != null) {   // Loop until we get walker.next or runner.next.next as null
             walker = walker.next;    // walker walks one.
             runner = runner.next.next;      // runner walks two
