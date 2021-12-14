@@ -30,10 +30,38 @@ Tinder
 2) Recommend matches - no of active users
 3) Note matches - active(swipe) x .1 %
 4) direct messaging
-client server communication protocol - http
-peer to peer - xmpp via TCP/websocket - Session Service (connectionid, user1, user2)
+HTTP - client server communication protocol - it needs client to ask from server OR LONG POLLING for keep asking server if any message
+WEBSOCKET (WSS) - peer to peer - xmpp via TCP/websocket - Session Service (connectionid, user1, user2)
 ===
 Cache
 1) Save Network Calls
 2) Avoid re-computations
 3) Avoid load on database
+4) Eviction policy - LRU (latest on top) / LFU (Most Used at top) / Windows Sliding (steam media - few secs of each videos on cache) / Caffeine (decides which objects should be deleted at any given time.)
+5) Thrashing
+6) In memory on Server (Memcache), Global Cache (Redis - persistent storage)
+7) Write through Cache (update both cache+db), Write back(delete cache + update db) - good to have hybrid i.e. both
+===
+Whatsapp
+1) Group Message
+2) Sent, Delivered, read receipt
+3) Online, Last seen
+4) image sharing
+5) chat temp / permanent
+6) one to one chat
+
+Multiple Gateway connected to Session API backed by DB (each session api send message directly to user)
+Multiple Message Queue with retry (certain number) having threads
+===
+Event Driven
+each service has its own db
+===
+instagram (newsfeed)
+1) store/get images
+2) like+comment (post) - recursive - (likes table)type/active/parentid/userid/ts  - (post table)id,text,image,ts - (comment)id/text/ts - (activity) id/likes_tot
+profile service/userfeed service/post service/like service/follow service/
+===
+memory
+i/o
+processor
+disk
