@@ -1,0 +1,39 @@
+Notes:
+1) Vertical Scaling = Optimize process and increase throughput with the same resource
+2) Preprocessing/Cron Job = Preparing beforehand during non-peak hours
+3) BackUps (Master/Slave) = Avoid single point of failure
+4) Horizontal Machine = More Machines
+5) MicroService = Dividing responsibilities and scalable
+6) Distributed System = Failure and fast response
+7) Load Balancer = Intelligent way to route request and avoid duplicates to various server
+8) Decoupling and Extensible
+9) Logging and Metrics - Analytics, Auditing, Reporting, ML
+===
+Consistent Hashing maps servers to the key space and assigns requests(mapped to relevant buckets, called load) to the next clockwise server.
+Servers can then store relevant request data in them while allowing the system flexibility and scalability.
+===
+HeartBeat detect if server is down.
+===
+MessageQueue - Take Task, persist them, assign to correct server, wait for it to complete, if taking too long feels server is dead, assign to new server.
+Load Balancing + HeartBeat
+eg. RabbitMQ
+===
+Netflix
+Video - multiple format *  multiple resolution * multiple chunks (scene based - combination of smaller timestamp) = single task
+chunks = in sec
+amazon s3
+Open Connect(90% total content at HardDrive at ISP with Movies) Netflix Open Connect program is to provide our millions of Netflix subscribers the highest-quality viewing experience possible.
+We achieve this goal by partnering with Internet Service Providers (ISPs) to deliver our content more efficiently
+===
+Tinder
+1) Store Profiles (Images) - 5 images per user - CDN for store images as file in distributed env
+2) Recommend matches - no of active users
+3) Note matches - active(swipe) x .1 %
+4) direct messaging
+client server communication protocol - http
+peer to peer - xmpp via TCP/websocket - Session Service (connectionid, user1, user2)
+===
+Cache
+1) Save Network Calls
+2) Avoid re-computations
+3) Avoid load on database
