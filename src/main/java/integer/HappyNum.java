@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HappyNum {
-    public boolean isHappy(int n) {
+    static boolean isHappy(int n) {
         return dfs(new ArrayList<Integer>(), n);
     }
 
-    public boolean dfs(List<Integer> nums, int n) {
+    static boolean dfs(List<Integer> nums, int n) {
         if (n == 1)
             return true;
         if (nums.contains(n))
@@ -19,9 +19,13 @@ public class HappyNum {
         int num = 0;
         while (n > 0) {
             num = n % 10;
-            newNum += num * num;
+            newNum = newNum + num * num;
             n = n / 10;
         }
         return dfs(nums, newNum);
+    }
+
+    public static void main(String[] args) {
+        System.out.println(isHappy(23));
     }
 }

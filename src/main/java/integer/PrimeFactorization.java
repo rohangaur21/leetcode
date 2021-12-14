@@ -11,7 +11,7 @@ public class PrimeFactorization {
         }
     }
 
-    private static List<Integer> primeFactors(int n) {
+    static List<Integer> primeFactors(int n) {
         List<Integer> prime = new ArrayList<>();
         while (n / 2 == 0) {
             prime.add(2);
@@ -21,7 +21,7 @@ public class PrimeFactorization {
         for (int i = 3; i <= Math.sqrt(n); i += 2) {
             while (n % i == 0) {
                 prime.add(i);
-                n /= i;
+                n = n/i;
             }
         }
         if (n > 2) {
