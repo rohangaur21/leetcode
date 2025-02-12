@@ -3,25 +3,43 @@ package array;
 import java.util.HashMap;
 import java.util.Map;
 
-public class ContinuousSubArraySumEqToK {
+public class ContinuousSubArrayMultipleOfK {
+
     public static int subarraySum(int[] nums, int k) {
-        Map<Integer, Integer> prefixSumCount = new HashMap<>();
-        prefixSumCount.put(0, 1); // Handles cases where sum itself is k
+        // Map to store frequency of cumulative sum % k
+        Map<Integer, Integer> modCount = new HashMap<>();
+        // Initialize with modCount 0 = 1 to handle subarrays starting from index 0
+        modCount.put(0, 1);
+
         int count = 0, sum = 0;
 
         for (int num : nums) {
-            sum += num; // Running sum
-            count += prefixSumCount.getOrDefault(sum - k, 0); // Check for (sum - k) in the map
-            prefixSumCount.put(sum, prefixSumCount.getOrDefault(sum, 0) + 1); // Store/update sum frequency
+            // Update the cumulative sum
+            sum += num;
+
+            // Find the modulo of the cumulative sum with respect to k
+            int mod = sum % k;
+
+            // Adjust mod to always be positive
+            if (mod < 0) {
+                mod += k;
+            }
+
+            // If the mod is already in the map, it means there's a subarray whose sum is a multiple of k
+            if (modCount.containsKey(mod)) {
+                count += modCount.get(mod);
+            }
+
+            // Update modCount with the new mod value
+            modCount.put(mod, modCount.getOrDefault(mod, 0) + 1);
         }
 
         return count;
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5, 6, 7};
-        int k = 9;
-        System.out.println("Total subarrays with sum " + k + " = " + subarraySum(nums, k));
+        // Test the method with a sample input
+        System.out.println("\n" + subarraySum(new int[]{4, 5, 0, -2, -3, 1}, 5));  // Expected output: 7
     }
 }
 
