@@ -33,7 +33,7 @@ public class TwoSum_EqToTarget {
      * @param target: the target integer (1 ≤ target ≤ 10^9)
      * @return: a list of two indices where nums[i] + nums[j] = target
      */
-    public static List<Integer> twoSum(List<Integer> nums, int target) {
+    private static List<Integer> twoSum(List<Integer> nums, int target) {
         // Map to store the numbers we have already seen and their indices
         Map<Integer, Integer> map = new HashMap<>();
 
@@ -62,7 +62,7 @@ public class TwoSum_EqToTarget {
     }
 
     // Test method to validate the twoSum function
-    public static void testTwoSum() {
+    private static void testTwoSum() {
         // Test 1: Basic test case
         List<Integer> nums1 = Arrays.asList(2, 7, 11, 15);
         int target1 = 9;

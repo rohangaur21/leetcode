@@ -45,40 +45,26 @@ public class FrstnLstPosSortedArr {
 
     // Depth-first search to find all indices of the target
     public static void DFS(int[] nums, Set<Integer> set, int start, int end, int target) {
-        // Base case: single element range
         if (start == end) {
             if (nums[start] == target) set.add(start);
             return;
-        }
-
-        // Case where the range is two elements
-        else if (end - start == 1) {
+        } else if (end - start == 1) {
             if (nums[start] == target) set.add(start);
             if (nums[end] == target) set.add(end);
             return;
         }
-
-        // Midpoint for binary search
         int mid = (start + end) / 2;
-
-        // If target is found at the middle
         if (nums[mid] == target) {
             set.add(mid);
-
-            // Continue searching to the left and right of mid
             if (nums[mid - 1] == target) {
-                DFS(nums, set, start, mid - 1, target); // Search left
+                DFS(nums, set, start, mid - 1, target);
             }
             if (nums[mid + 1] == target) {
-                DFS(nums, set, mid + 1, end, target); // Search right
+                DFS(nums, set, mid + 1, end, target);
             }
-        }
-        // If target is greater than mid element, search right
-        else if (nums[mid] < target) {
+        } else if (nums[mid] < target) {
             DFS(nums, set, mid + 1, end, target);
-        }
-        // If target is smaller than mid element, search left
-        else {
+        } else {
             DFS(nums, set, start, mid - 1, target);
         }
     }

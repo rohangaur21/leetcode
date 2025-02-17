@@ -26,7 +26,7 @@ import java.util.Arrays;
  */
 
 public class ContinuousSubArrayMultipleOfK {
-    public static int subarraySum(int[] nums, int k) {
+    private static int subarraySum(int[] nums, int k) {
         int count = 0;
         // Loop over all possible starting indices
         for (int i = 0; i < nums.length; i++) {

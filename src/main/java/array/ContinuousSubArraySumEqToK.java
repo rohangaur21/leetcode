@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public class ContinuousSubArraySumEqToK {
 
-    public static int subarraySum(int[] nums, int k) {
+    private static int subarraySum(int[] nums, int k) {
         // Map to store the frequency of prefix sums
         Map<Integer, Integer> prefixSumCount = new HashMap<>();
 

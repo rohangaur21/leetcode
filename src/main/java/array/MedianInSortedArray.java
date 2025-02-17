@@ -2,6 +2,18 @@ package array;
 
 import java.util.Arrays;
 
+/**
+ * Problem Statement:
+ * Given two sorted arrays nums1 and nums2 of size n and m respectively,
+ * find the median of the merged sorted array.
+ * The overall run time complexity should be O(n + m).
+ * <p>
+ * Example:
+ * Input: nums1 = [1, 2, 3, 20], nums2 = [7, 10]
+ * Output: 5.0
+ * Explanation: The merged array is [1, 2, 3, 7, 10, 20].
+ * The median is (3 + 7) / 2 = 5.0.
+ */
 public class MedianInSortedArray {
 
     public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
@@ -15,32 +27,6 @@ public class MedianInSortedArray {
         Arrays.sort(newArray);
 
         return tot % 2 == 0 ? (newArray[(tot / 2) - 1] + newArray[(tot / 2)]) / 2.0 : newArray[(tot) / 2];
-    }
-
-    public double findMedianSortedArrays(int[] nums1, int[] nums2) {
-        int n1 = nums1.length;
-        int n2 = nums2.length;
-
-        if (n1 == 0 && n2 == 0) {
-            return 0d;
-        } else if (n2 == 0) {
-            return (n1 % 2 > 0) ? nums1[(n1 / 2)] : (nums1[(n1 / 2) - 1] + nums1[n1 / 2]) / 2.0;
-        } else if (n1 == 0) {
-            return (n2 % 2 > 0) ? nums2[(n2 / 2)] : (nums2[(n2 / 2) - 1] + nums2[n2 / 2]) / 2.0;
-        } else {
-            int[] nums = new int[n1 + n2];
-            int i = 0, j = 0, k = 0;
-            while (k < (n1 + n2)) {
-                if (i < n1 && j < n2 && nums1[i] <= nums2[j]) {
-                    nums[k] = nums1[i++];
-                } else if (j < n2) {
-                    nums[k] = nums2[j++];
-                }
-                k++;
-            }
-            int n3 = nums.length;
-            return (n3 % 2 > 0) ? nums[(n3 / 2)] : (nums[(n3 / 2) - 1] + nums[n3 / 2]) / 2.0;
-        }
     }
 
     public static void main(String[] args) {
