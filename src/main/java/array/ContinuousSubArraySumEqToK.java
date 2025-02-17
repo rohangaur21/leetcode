@@ -3,59 +3,43 @@ package array;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Problem: Continuous Subarray Sum Equals k
+ * <p>
+ * Given an integer array `nums` and an integer `k`, find the number of contiguous subarrays whose sum equals `k`.
+ * <p>
+ * Constraints:
+ * - The array may contain positive, negative, and zero values.
+ * - 1 ≤ nums.length ≤ 10⁵, -10⁴ ≤ nums[i] ≤ 10⁴, -10⁷ ≤ k ≤ 10⁷.
+ */
 public class ContinuousSubArraySumEqToK {
+
     public static int subarraySum(int[] nums, int k) {
+        // Map to store the frequency of prefix sums
         Map<Integer, Integer> prefixSumCount = new HashMap<>();
-        prefixSumCount.put(0, 1); // Handles cases where sum itself is k
+
+        // Initialize map with 0 sum having 1 occurrence (to handle subarrays starting from index 0)
+        prefixSumCount.put(0, 1);
+
         int count = 0, sum = 0;
 
+        // Iterate through the array
         for (int num : nums) {
-            sum += num; // Running sum
-            count += prefixSumCount.getOrDefault(sum - k, 0); // Check for (sum - k) in the map
-            prefixSumCount.put(sum, prefixSumCount.getOrDefault(sum, 0) + 1); // Store/update sum frequency
+            sum += num; // Calculate the running sum
+
+            // Check if there's a prefix sum that when subtracted from the current sum equals k
+            count += prefixSumCount.getOrDefault(sum - k, 0);
+
+            // Update the map with the current sum's frequency
+            prefixSumCount.put(sum, prefixSumCount.getOrDefault(sum, 0) + 1);
         }
 
-        return count;
+        return count; // Return the count of subarrays whose sum equals k
     }
 
     public static void main(String[] args) {
-        int[] nums = {1, 2, 3, 4, 5, 6, 7};
-        int k = 9;
-        System.out.println("Total subarrays with sum " + k + " = " + subarraySum(nums, k));
+        int[] nums = {1, 2, 3, 4, 5, 6, 7, 8, 9}; // Example array
+        int k = 9; // Target sum
+        System.out.println("Total subarrays with sum " + k + " = " + subarraySum(nums, k)); // Expected output: 3
     }
 }
-
-
-//Problem Statement: Continuous Subarray Sum Equals K
-//Given:
-//An integer array nums and an integer k.
-//
-//Task:
-//Find the total number of continuous subarrays whose sum equals k.
-//
-//        Constraints:
-//The subarray must be contiguous.
-//The array may contain positive, negative, and zero values.
-//The elements can be unsorted.
-//        Input:
-//An array nums of integers (1 ≤ nums.length ≤ 10⁵, -10⁴ ≤ nums[i] ≤ 10⁴).
-//An integer k (-10⁷ ≤ k ≤ 10⁷).
-//Output:
-//An integer representing the number of subarrays that sum to k.
-//        Example 1
-//Input:
-//java
-//        Copy
-//Edit
-//        nums = {1, 2, 3, 4, 5, 6, 7};
-//k = 9;
-//Output:
-//java
-//        Copy
-//Edit
-//2
-//Explanation:
-//Valid subarrays:
-//
-//        [2, 3, 4] → 2 + 3 + 4 = 9
-//        [4, 5] → 4 + 5 = 9
