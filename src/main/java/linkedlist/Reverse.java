@@ -2,19 +2,19 @@ package linkedlist;
 
 public class Reverse {
     //approach1
-    static ListNode reverseList1(ListNode head) {
+    static Node reverseList1(Node head) {
         if (head == null) return head;
         if (head.next == null) return head; // last node or only one node
-        ListNode newHeadNode = reverseList1(head.next);
+        Node newHeadNode = reverseList1(head.next);
         head.next.next = head; // change references for middle chain
         head.next = null;
         return newHeadNode;// send back new head node in every recursion
     }
 
     //approach2
-    static ListNode reverseList2(ListNode head) {
-        ListNode prev = null;
-        ListNode next;          //reference next will stay until the end of the method
+    static Node reverseList2(Node head) {
+        Node prev = null;
+        Node next;          //reference next will stay until the end of the method
         while (head != null) {
             next = head.next;
             head.next = prev;
@@ -25,13 +25,13 @@ public class Reverse {
     }
 
     //approach3
-    static ListNode reverseList3(ListNode head) {
+    static Node reverseList3(Node head) {
         if (head == null || head.next == null) return head;
-        ListNode second = head.next;    //get second node
+        Node second = head.next;    //get second node
         head.next = null;//set first's next to be null
 
         System.out.println("BF :"+ head.data +" - "+second.data);
-        ListNode rest = reverseList3(second);
+        Node rest = reverseList3(second);
         System.out.println("----AF :"+ head.data +" - "+second.data);
         second.next = head;
         return rest;
@@ -47,7 +47,7 @@ public class Reverse {
         list.addNode(7);
         list.printNodes();
         System.out.println("----");
-        ListNode ln = reverseList3(list.head);
+        Node ln = reverseList3(list.head);
         ln.print();
     }
 }

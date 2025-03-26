@@ -1,15 +1,15 @@
 package linkedlist;
 class MergeTwoSorted {
-    public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode l3 = new ListNode(0);
-        ListNode curr = l3;
+    public static Node mergeTwoLists(Node l1, Node l2) {
+        Node l3 = new Node(0);
+        Node curr = l3;
         while (l1 != null) {
             while (l2 != null && l2.data.compareTo(l1.data)<0) {
-                curr.next = new ListNode(l2.data);
+                curr.next = new Node(l2.data);
                 l2 = l2.next;
                 curr = curr.next;
             }
-            curr.next = new ListNode(l1.data);
+            curr.next = new Node(l1.data);
             l1 = l1.next;
             curr = curr.next;
         }
@@ -17,9 +17,9 @@ class MergeTwoSorted {
         return l3.next;
     }
 
-    public static ListNode mergeTwoLists1(ListNode l1, ListNode l2) {
-        ListNode l3 = new ListNode(0);
-        ListNode curr = l3;
+    public static Node mergeTwoLists1(Node l1, Node l2) {
+        Node l3 = new Node(0);
+        Node curr = l3;
         while (true) {
             if(l1==null){
                 curr.next=l2;
@@ -29,11 +29,11 @@ class MergeTwoSorted {
                 break;
             }else{
                 if(l1.data.compareTo(l2.data)<0){
-                    curr.next = new ListNode(l1.data);
+                    curr.next = new Node(l1.data);
                     l1=l1.next;
                     curr=curr.next;
                 }else{
-                    curr.next = new ListNode(l2.data);
+                    curr.next = new Node(l2.data);
                     l2=l2.next;
                     curr=curr.next;
                 }
@@ -53,7 +53,7 @@ class MergeTwoSorted {
         l2.addNode(3);
         l2.addNode(4);
         l2.printNodes();
-        ListNode l = mergeTwoLists(l1.head, l2.head);
+        Node l = mergeTwoLists(l1.head, l2.head);
         l.print();
     }
 }

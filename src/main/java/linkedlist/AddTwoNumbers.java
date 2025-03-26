@@ -30,7 +30,7 @@ public class AddTwoNumbers {
         return h3;
     }
 
-    static int helper(LinkList<Integer> l, ListNode<Integer> l1, int len1, ListNode<Integer> l2, int len2, int sum) {
+    static int helper(LinkList<Integer> l, Node<Integer> l1, int len1, Node<Integer> l2, int len2, int sum) {
         if (l1 == null && l2 == null) {
             return 0;
         }

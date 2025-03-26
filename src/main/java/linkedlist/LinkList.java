@@ -5,20 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LinkList<T extends Comparable<T>> implements Cloneable {
-    public ListNode<T> head = null;
+    public Node<T> head = null;
 
     public LinkList() {
     }
 
     public void addNode(T data) {
         if (head == null) {
-            head = new ListNode<T>(data);
+            head = new Node<T>(data);
         } else {
-            ListNode<T> curr = head;
+            Node<T> curr = head;
             while (curr.next != null) {
                 curr = curr.next;
             }
-            curr.next = new ListNode<T>(data);
+            curr.next = new Node<T>(data);
         }
     }
 
@@ -29,10 +29,10 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
         if (head == null) {
             System.out.println("There is no node in the linked list");
         } else {
-            ListNode<T> curr = head;
+            Node<T> curr = head;
             int i = 1;
             while (curr != null) {
-                System.out.print(i+"("+curr.toString()+") -> ");
+                System.out.print(i + "(" + curr.toString() + ") -> ");
                 curr = curr.next;
                 i++;
             }
@@ -47,7 +47,7 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
         if (head == null) {
             return 0;
         } else {
-            ListNode<T> curr = head;
+            Node<T> curr = head;
             int count = 0;
             while (curr != null) {
                 curr = curr.next;
@@ -91,20 +91,20 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
 
         if (n == 0) {
             // To insert at the 0th position update the head itself.
-            ListNode<T> nextNode = head;
-            head = new ListNode<>(data);
+            Node<T> nextNode = head;
+            head = new Node<>(data);
             head.next = nextNode;
         } else {
             // Move the curr node to one before the position where we
             // want to insert the element and adjust the pointers accordingly.
             int i = 0;
-            ListNode<T> curr = head;
+            Node<T> curr = head;
             while (i < n - 1) {
                 curr = curr.next;
                 i++;
             }
-            ListNode<T> next = curr.next;
-            curr.next = new ListNode<T>(data);
+            Node<T> next = curr.next;
+            curr.next = new Node<T>(data);
             curr.next.next = next;
         }
     }
@@ -115,16 +115,16 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
      */
     public void insertSorted(T data) {
         if (countNodes() == 0 || head.data.compareTo(data) > 0) {
-            ListNode<T> next = head;
-            head = new ListNode<T>(data);
+            Node<T> next = head;
+            head = new Node<T>(data);
             head.next = next;
         } else {
-            ListNode<T> curr = head;
+            Node<T> curr = head;
             while (curr.next != null && curr.next.data.compareTo(data) < 0) {
                 curr = curr.next;
             }
-            ListNode<T> next = curr.next;
-            curr.next = new ListNode<T>(data);
+            Node<T> next = curr.next;
+            curr.next = new Node<T>(data);
             curr.next.next = next;
         }
     }
@@ -136,7 +136,7 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
         if (ll.head == null) {
             return;
         } else {
-            ListNode<T> curr = ll.head;
+            Node<T> curr = ll.head;
             while (curr != null) {
                 addNode((T) curr.data);
                 curr = curr.next;
@@ -148,9 +148,9 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
      * Split a linked list into 2 equal parts. If there are an odd number of
      * elements, the extra element should be in the first list.
      */
-    public List<ListNode<T>> frontBackSplit() {
-        ListNode<T> front = null;
-        ListNode<T> back = null;
+    public List<Node<T>> frontBackSplit() {
+        Node<T> front = null;
+        Node<T> back = null;
 
         // A 0 element list means both the front list and back
         // list will both be null.
@@ -164,8 +164,8 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
             back = null;
         } else {
             // Move one pointer twice as fast as another.
-            ListNode<T> slow = head;
-            ListNode<T> fast = head;
+            Node<T> slow = head;
+            Node<T> fast = head;
             while (fast != null) {
                 fast = fast.next;
                 if (fast == null) {
@@ -180,7 +180,7 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
             back = slow.next;
             slow.next = null;
         }
-        List<ListNode<T>> list = new ArrayList<>();
+        List<Node<T>> list = new ArrayList<>();
         list.add(front);
         list.add(back);
         return list;
@@ -194,7 +194,7 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
         if (count == 0 || count == 1) {
             return;
         } else {
-            ListNode<T> curr = head;
+            Node<T> curr = head;
             do {
                 if (curr.next.data.compareTo(curr.data) == 0) {
                     // Skip over the duplicate node. It will be garbage collected
@@ -218,8 +218,8 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
             // add it to the list.
             destinationList.addNode(currHead);
         } else {
-            ListNode<T> next = destinationList.head;
-            destinationList.head = new ListNode<T>(currHead);
+            Node<T> next = destinationList.head;
+            destinationList.head = new Node<T>(currHead);
             destinationList.head.next = next;
         }
     }
@@ -234,8 +234,8 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
         } else if (head == null) {
             return otherList;
         } else {
-            ListNode<T> curr1 = otherList.head;
-            ListNode<T> curr2 = head;
+            Node<T> curr1 = otherList.head;
+            Node<T> curr2 = head;
             LinkList<T> sortedList = new LinkList<T>();
 
             while (curr1 != null || curr2 != null) {
@@ -261,10 +261,10 @@ public class LinkList<T extends Comparable<T>> implements Cloneable {
             return;
         }
 
-        ListNode<T> prev = null;
-        ListNode<T> curr = head;
+        Node<T> prev = null;
+        Node<T> curr = head;
         while (curr != null) {
-            ListNode<T> next = curr.next;
+            Node<T> next = curr.next;
             curr.next = prev;
             prev = curr;
             curr = next;

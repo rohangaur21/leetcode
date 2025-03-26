@@ -3,12 +3,12 @@ package linkedlist;
 public class RemoveNthFromEnd {
 
 
-    public static ListNode removeNthFromEnd(ListNode head, int n) {
+    public static Node removeNthFromEnd(Node head, int n) {
         if (head == null || head.next == null) {
             return null;
         }
-        ListNode p1 = head;
-        ListNode p2 = head;
+        Node p1 = head;
+        Node p2 = head;
         int count = 0;
         while (p2.next != null) {
             if (count < n) {
@@ -36,7 +36,7 @@ public class RemoveNthFromEnd {
         list.addNode(7);
         list.printNodes();
         System.out.println("----");
-        ListNode h = removeNthFromEnd(list.head, 5);
+        Node h = removeNthFromEnd(list.head, 5);
         h.print();
     }
 }

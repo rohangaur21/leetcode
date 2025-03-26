@@ -1,10 +1,10 @@
 package linkedlist;
 
-public class ListNode<T extends Comparable<T>> {
+public class Node<T extends Comparable<T>> {
     public T data;
-    public ListNode<T> next;
+    public Node<T> next;
 
-    public ListNode(T data) {
+    public Node(T data) {
         this.data = data;
         this.next = null;
     }
@@ -18,7 +18,7 @@ public class ListNode<T extends Comparable<T>> {
         if (this == null) {
             System.out.println("There is no node");
         } else {
-            ListNode<T> curr = this;
+            Node<T> curr = this;
             int i = 1;
             while (curr != null) {
                 System.out.print(i + "(" + curr.toString() + ") -> ");

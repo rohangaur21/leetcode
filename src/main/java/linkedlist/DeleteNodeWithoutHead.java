@@ -1,14 +1,14 @@
 package linkedlist;
 
 public class DeleteNodeWithoutHead {
-    public static void removeNode(ListNode node) {
+    public static void removeNode(Node node) {
         if (node == null) return; /* if no node return null */
         if (node.next == null) { /* if only 1 node then delete node */
             node = null;
             return;
         }
         node.data = node.next.data; /* copy next node data to this node */
-        ListNode second = node.next.next;     /* store the next next node */
+        Node second = node.next.next;     /* store the next next node */
         node.next = second; /* set the copied node as next */
     }
 

@@ -65,7 +65,7 @@ public class Main {
         System.out.println("Printing all nodes through printnode function after mergesorted function");
         mergesort.printNodes();
 
-        List<ListNode<Integer>> frontBackSplit = n.frontBackSplit();
+        List<Node<Integer>> frontBackSplit = n.frontBackSplit();
 
         System.out.println("Printing all nodes through printnode function of Front Split after frontBackSplit function");
         printNode(frontBackSplit.get(0));
@@ -81,8 +81,8 @@ public class Main {
     }
 
 
-    static void printNode(ListNode head) {
-        ListNode curr = null;
+    static void printNode(Node head) {
+        Node curr = null;
         curr = head;
         int i = 1;
         while (curr != null) {
